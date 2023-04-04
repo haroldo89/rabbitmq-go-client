@@ -21,7 +21,7 @@ Code examples are executed via `go run`:
     go run send.go
     go run receive.go
 
-[example: "send-receive"]:
+[example: "work-queues"]:
 
     go run worker.go
     go run new_task.go
