@@ -16,12 +16,17 @@ Get it first with
 
 Code examples are executed via `go run`:
 
-[example one: "send-receive!"]:
+[example: "send-receive"]:
 
     go run send.go
     go run receive.go
 
-[example two: publish-subscribe]:
+[example: "send-receive"]:
+
+    go run worker.go
+    go run new_task.go
+
+[example: publish-subscribe]:
 
     go run receive_logs.go
     go run emit_log.go "hello world"
