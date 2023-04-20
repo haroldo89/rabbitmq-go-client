@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"log"
 	"time"
 
@@ -56,8 +55,9 @@ func main() {
 	go func() {
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
-			dotCount := bytes.Count(d.Body, []byte("."))
-			t := time.Duration(dotCount)
+			// dotCount := bytes.Count(d.Body, []byte("."))
+			// t := time.Duration(dotCount)
+			t := time.Duration(5)
 			time.Sleep(t * time.Second)
 			log.Printf("Done")
 			d.Ack(false)
