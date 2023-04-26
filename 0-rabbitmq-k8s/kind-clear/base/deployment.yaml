@@ -16,7 +16,6 @@ spec:
         kubernetes.io/os: linux
       containers:
       - name: rabbitmq-k8s
-        # image: rabbitmq:3.8
         image: rabbitmq:3.11-management-alpine
         imagePullPolicy: Always
         ports:
@@ -45,7 +44,20 @@ spec:
           - name: K8S_HOSTNAME_SUFFIX
             value: .$(K8S_SERVICE_NAME).$(MY_POD_NAMESPACE).svc.cluster.local
           - name: RABBITMQ_ERLANG_COOKIE
-            value: "mycookie"
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-sc
+                key: rabbitmq-erlang-cookie
+          - name: RABBITMQ_DEFAULT_USER
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-sc
+                key: rabbitmq-username
+          - name: RABBITMQ_DEFAULT_PASS
+            valueFrom:
+              secretKeyRef:
+                name: rabbitmq-sc
+                key: rabbitmq-password
         resources:
           requests:
             cpu: 250m

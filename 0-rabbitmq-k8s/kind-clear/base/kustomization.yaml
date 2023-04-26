@@ -5,6 +5,8 @@ commonLabels:
 
 resources:
 - configMap.yaml
+- secret.yaml
 - deployment.yaml
 - deployment_rbac.yaml
 - service.yaml
+- pdb.yaml

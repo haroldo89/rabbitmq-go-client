@@ -12,6 +12,6 @@ nodes:
         authorization-mode: "AlwaysAllow"
   extraPortMappings:
   - containerPort: 31672
-    hostPort: 15672
+    hostPort: 15673
   - containerPort: 30672
-    hostPort: 5672 
+    hostPort: 5673 

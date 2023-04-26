@@ -24,7 +24,7 @@ The example uses, targets or assumes:
 
  * Create Kind cluster 
 ```
-kind create cluster --config kind/kind-cluster/kind-cluster.yaml
+kind create cluster --config kind-clear/kind-cluster/kind-cluster.yaml
 ```
 
 Deploy RabbitMQ with or without [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
@@ -60,9 +60,9 @@ The `kind-cluster.yaml` configuration binds localhost ports:
 ```yaml
  extraPortMappings:
   - containerPort: 31672
-    hostPort: 15672
+    hostPort: 15673
   - containerPort: 30672
-    hostPort: 5672
+    hostPort: 5673
 ```
 
 The `NodePort` service exposes the ports: 
