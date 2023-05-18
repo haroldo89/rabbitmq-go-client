@@ -58,8 +58,8 @@ func main() {
 			log.Printf("Received a message: %s", d.Body)
 			// dotCount := bytes.Count(d.Body, []byte("."))
 			// t := time.Duration(dotCount)
-			t := time.Duration(3)
-			time.Sleep(t * time.Second)
+			t := time.Duration(6)
+			time.Sleep(t * time.Minute)
 			log.Printf("Done")
 			d.Ack(false)
 		}

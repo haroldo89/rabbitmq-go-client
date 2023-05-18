@@ -60,11 +60,11 @@ spec:
                 key: rabbitmq-password
         resources:
           requests:
-            cpu: 250m
-            memory: 128Mi
-          limits:
             cpu: 500m
             memory: 256Mi
+          limits:
+            cpu: 700m
+            memory: 500Mi
         readinessProbe:
           exec:
             command: ["rabbitmq-diagnostics", "ping"]

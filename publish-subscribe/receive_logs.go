@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
@@ -13,7 +14,8 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	// conn, err := amqp.Dial("amqp://usr-guest:usr-pass@localhost:5672/") // remote test with OCP cluster
+	conn, err := amqp.Dial("amqp://guest:guest@localhost:5673/") // local test with kind cluster
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
@@ -66,6 +68,8 @@ func main() {
 	go func() {
 		for d := range msgs {
 			log.Printf(" [x] %s", d.Body)
+			t := time.Duration(6)
+			time.Sleep(t * time.Minute)
 		}
 	}()
 
