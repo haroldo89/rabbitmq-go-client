@@ -33,7 +33,7 @@ Deploy RabbitMQ with or without [persistent volumes](https://kubernetes.io/docs/
 
 * Deploy RabbitMQ without PV:
 ```
-kubectl apply  -k overlays/dev
+kubectl apply  -k kind-clear/overlays/dev
 ```
 
 * Deploy RabbitMQ with PV using storage class:

@@ -10,6 +10,11 @@ spec:
      port: 15672
      targetPort: 15672
      nodePort: 31672
+   - name: metrics
+     protocol: TCP
+     port: 15692
+     targetPort: 15692
+     nodePort: 31692
    - name: amqp
      protocol: TCP
      port: 5672

@@ -22,6 +22,9 @@ spec:
           - name: http
             protocol: TCP
             containerPort: 15672
+          - name: metrics
+            protocol: TCP
+            containerPort: 15692
           - name: amqp
             protocol: TCP
             containerPort: 5672
