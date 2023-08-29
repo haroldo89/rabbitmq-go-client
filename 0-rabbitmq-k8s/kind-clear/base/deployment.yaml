@@ -4,7 +4,7 @@ metadata:
   name: rabbitmq
 spec:
   serviceName: rabbitmq
-  replicas: 3
+  replicas: 1
   # volumeClaimTemplates: []
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
         kubernetes.io/os: linux
       containers:
       - name: rabbitmq-k8s
-        image: rabbitmq:3.11-management-alpine
+        image: rabbitmq:3.12.4-management-alpine
         imagePullPolicy: Always
         ports:
           - name: http
