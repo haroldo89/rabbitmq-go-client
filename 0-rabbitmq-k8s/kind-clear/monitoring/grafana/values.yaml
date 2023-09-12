@@ -2,6 +2,7 @@
 # helm repo update
 # helm install grafana grafana/grafana -n your-namespace -f values.yaml
 # helm install grafana grafana/grafana -n rabbitmq-dev -f values.yaml
+# helm install grafana grafana/grafana -n default -f values.yaml
 
 # values.yaml
 adminUser: admin
@@ -13,11 +14,5 @@ datasources:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: http://prometheus-server.rabbitmq-dev.svc.cluster.local
+        url: http://prometheus-server.default.svc.cluster.local
         isDefault: true
-      # - name: RabbitMQ
-      #   type: prometheus
-      #   access: proxy
-      #   url: http://rabbitmq.rabbitmq-dev.svc.cluster.local:15692
-      #   isDefault: true
-

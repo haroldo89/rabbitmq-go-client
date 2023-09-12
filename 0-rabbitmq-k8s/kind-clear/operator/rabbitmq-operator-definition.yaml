@@ -1,0 +1,11 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: rabbitmq-operator
+spec:
+  replicas: 3
+  rabbitmq:
+    additionalConfig: |
+      log.console.level = debug
+      default_user=guest
+      default_pass=guest

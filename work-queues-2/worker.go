@@ -14,8 +14,8 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:pass@localhost:5672/") // remote test with OCP cluster
-	// conn, err := amqp.Dial("amqp://guest:guest@localhost:5673/") // local test with kind cluster
+	// conn, err := amqp.Dial("amqp://guest:pass@localhost:5672/") // remote test with OCP cluster
+	conn, err := amqp.Dial("amqp://guest:pass@localhost:5673/") // local test with kind cluster
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
@@ -56,6 +56,8 @@ func main() {
 	go func() {
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
+			// dotCount := bytes.Count(d.Body, []byte("."))
+			// t := time.Duration(dotCount)
 			t := time.Duration(3)
 			time.Sleep(t * time.Second)
 			log.Printf("Done")

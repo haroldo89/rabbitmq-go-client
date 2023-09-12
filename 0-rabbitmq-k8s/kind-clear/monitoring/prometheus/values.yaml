@@ -2,6 +2,7 @@
 # helm repo update
 # helm install prometheus prometheus-community/prometheus -n your-namespace -f values.yaml
 # helm install prometheus prometheus-community/prometheus -n rabbitmq-dev -f values.yaml
+# helm install prometheus prometheus-community/prometheus -n default -f values.yaml
 
 # values.yaml
 server:
@@ -15,4 +16,4 @@ rbac:
 extraScrapeConfigs: |
   - job_name: 'rabbitmq'
     static_configs:
-      - targets: ['rabbitmq:15692'] # Change this to the RabbitMQ management API endpoint
+      - targets: ['rabbitmq-operator:15692'] # Change this to the RabbitMQ management API endpoint
